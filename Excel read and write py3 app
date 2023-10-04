@@ -1,0 +1,50 @@
+import openpyxl
+
+# Read from an Excel file
+def read_excel(file_path, sheet_name):
+    try:
+        workbook = openpyxl.load_workbook(file_path)
+        sheet = workbook[sheet_name]
+
+        # Iterate through rows and columns
+        for row in sheet.iter_rows(values_only=True):
+            for cell_value in row:
+                print(cell_value, end="\t")
+            print()
+
+        workbook.close()
+    except FileNotFoundError:
+        print(f"File '{file_path}' not found.")
+
+# Write to an Excel file
+def write_excel(file_path, sheet_name, data):
+    workbook = openpyxl.Workbook()
+    sheet = workbook.active
+    sheet.title = sheet_name
+
+    # Write data to the sheet
+    for row_data in data:
+        sheet.append(row_data)
+
+    # Save the workbook to the file
+    workbook.save(file_path)
+    print(f"Data written to '{file_path}'.")
+
+# Example data to write to Excel
+data_to_write = [
+    ["Name", "Age", "Country"],
+    ["Alice", 25, "INDIA"],
+    ["Bob", 30, "Canada"],
+    ["Charlie", 22, "madurai"],
+]
+
+# File path and sheet name
+file_path = "example.xlsx"
+sheet_name = "Sheet1"
+
+# Write data to Excel
+write_excel(file_path, sheet_name, data_to_write)
+
+# Read data from Excel
+print("\nReading data from Excel:")
+read_excel(file_path, sheet_name)
