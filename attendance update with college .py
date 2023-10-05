@@ -133,8 +133,8 @@ present_list.pack(pady=50, padx=50)
 absent_list = tk.Label(root, text="", bg="#f0f0f0")
 absent_list.pack(pady=50, padx=50)
 
-owner = tk.Label(root, text= f" Prepared by " "\n" "CHINNACHAMY C " "\n" "LECTURER IN CHEMISTRY" "\n"  "GOVERNMENT POLYTECHNIC COLLEGE" "\n" "AUNDIPATTI - 625517 " "\n" "Contact Number : 9751088873 "  )
-owner.pack(pady=20, padx=20)
+dev = tk.Label(root, text= f"CHINNACHAMY C " "\n" "LECTURER IN CHEMISTRY" "\n"  "GOVERNMENT POLYTECHNIC COLLEGE" "\n" "AUNDIPATTI - 625517 " "\n" "Contact Number : 9751088873 "  )
+dev.pack(pady=20, padx=20)
 
 # Main loop
 root.mainloop()
